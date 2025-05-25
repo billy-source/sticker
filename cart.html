@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header"> 
+        <p class="logo">LOGO</p>
+        <div class="cart"> <i class="fa-solid fa-cart-shopping"></i> <p id="count">0</p></div>
+    </div>
+    <div class="container ">
+        <div id="root"></div>
+            <div class="sidebar">
+                <div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your Cart is Empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0.00</h2>
+                </div>
+            
+        </div>
+    </div>
+    <script>
+        const product = [
+            { 
+                id:0,
+                image:'niceday.jpg',
+                tittle:'Nice Day',
+                price: 3.99,
+            },{ 
+                id:1,
+                image:'cute panda.jfif',
+                tittle:'Cute Panda',
+                price: 3.99,
+            },{ 
+                id:2,
+                image:'best.frn.panda.jfif',
+                tittle:'Best Friend Panda',
+                price: 3.99,
+            },{ 
+                id:3,
+                image:'enjoy life.jfif',
+                tittle:'Enjoy Life',
+                price: 3.99,
+            },{ 
+                id:4,
+                image:'stick1.jfif',
+                tittle:'Stick 1',
+                price: 3.99,
+            },{ 
+                id:5,
+                image:'stick2.webp',
+                tittle:'Stick 2',
+                price: 3.99,
+            },{ 
+                id:6,
+                image:'stick3.webp',
+                tittle:'Stick 3',
+                price: 3.99,
+            }
+        ]; // <-- Close the array and statement
+
+        const category = [...new Set(product.map((item) => item))];
+        let i = 0;
+        document.getElementById('root').innerHTML = category.map((item) => {
+            var { image, tittle, price } = item;
+            return (
+                `<div class="box">
+                    <div class="img-box">
+                        <img class="images" src="${image}" />
+                    </div>
+                    <div class="bottom">
+                        <p>${tittle}</p>
+                        <h2>$${price.toFixed(2)}</h2>
+                        <button onclick="addToCart(${i++})">Add to Cart</button>
+                    </div>
+                </div>`
+            );
+        }).join('');
+    </script>
+</body>
+</html>
