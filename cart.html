@@ -81,17 +81,31 @@
                 </div>`
             );
         }).join('');
+        function addTocart(a) {
+            cart.push({ ...categories[a] });
+            displayCart();
+        }
         var cart = [];
-        function displsyCart(a){
+        function displayCart(a){
             let j =0;
             if (cart.length ==0){
                 document.getElementById('cartItem').innerHTML = "Your Cart is Empty";
             } else {
                 document.getElementById('cartItem').innerHTML = cart.map((items) => {
-                    var { image, tittle, price } = item;
+                    var { image, tittle, price } = items;
                     return (
                         `<div class="cart-item">
-                            <img class="cart-image
+                            <div class ="row-img">
+                                <img class="row-img" src="${image}" />
+                            </div>
+                            <p style ="font-size:12px;">${tittle}</p>
+                            <h2 style = font-size:14px;>${price}.00</h2>+
+                            <i class="fa-solid fa-trash" onclick="deleteElement(${j++})"></i>
+                        </div>`
+                        
+                        
+                    );
+                }).join('');
             }
         }
     </script>
