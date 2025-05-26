@@ -5,13 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add to Cart</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="header"> 
-        <p class="logo">LOGO</p>
-        <div class="cart"> <i class="fa-solid fa-cart-shopping"></i> <p id="count">0</p></div>
+    
+   <header class="bg-white shadow">
+  <div class="header flex justify-between items-center px-6 py-4">
+    <p class="logo text-xl font-bold text-blue-800">Product</p>
+
+    <nav>
+      <ul class="flex space-x-4">
+        <li><a href="index.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Home</a></li>
+        <li><a href="shop.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Shop</a></li>
+        <li><a href="about.html" class="hover:bg-green-600 rounded-lg px-4 py-2">About</a></li>
+        <li><a href="product.html" class="hover:bg-green-600 rounded-lg px-4 py-2 border-b-2 border-green-500">Product</a></li>
+        <li><a href="contact.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cart flex items-center space-x-2">
+      <i class="fa-solid fa-cart-shopping text-xl"></i>
+      <p id="count" class="text-lg font-semibold">0</p>
     </div>
+  </div>
+</header>
+
     <div class="container ">
         <div id="root"></div>
             <div class="sidebar">
