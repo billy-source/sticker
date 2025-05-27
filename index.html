@@ -20,6 +20,7 @@
             <li><a href="about.html" class="hover:bg-green-600 rounded-lg px-4 py-2">About</a></li>
             <li><a href="product.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Product</a></li>
             <li><a href="contact.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Contact</a></li>
+            <li><a href="login.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Login</a></li>
            </ul>
         </nav>
       </div>
@@ -64,18 +65,62 @@
   </section>
 
 
-  <section class="max-w-6xl mx-auto px-6 py-16 text-center">
-    <h2 class="text-3xl font-bold text-black-700 mb-8">What Our Customers Say</h2>
-    <blockquote class="text-gray-600 ">"Stickerly stickers make my chats 10x more fun. I love how colorful and
-      lively they are!" – Sarah W.</blockquote>
-    <blockquote class="text-gray-600  mt-6">"Absolutely adorable! Every week there's a new pack to collect." –
-      Daniel K.</blockquote>
-  </section>
+ 
+
+  <section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">What Our Customers Say</h2>
+
+  <div class="flex flex-wrap justify-center gap-6">
+    <!-- Card 1 -->
+    <div class="bg-white shadow-md rounded-lg p-6 w-80 flex items-start space-x-4">
+      <img src="https://i.pravatar.cc/80?img=1" alt="User profile" class="w-14 h-14 rounded-full">
+      <div>
+        <p class="text-gray-700 italic">"Stickerly stickers make my chats 10x more fun. I love how colorful and lively they are!"</p>
+        <span class="block mt-2 font-semibold text-gray-800">– Sarah W.</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white shadow-md rounded-lg p-6 w-80 flex items-start space-x-4">
+      <img src="https://i.pravatar.cc/80?img=2" alt="User profile" class="w-14 h-14 rounded-full">
+      <div>
+        <p class="text-gray-700 italic">"Absolutely adorable! Every week there's a new pack to collect."</p>
+        <span class="block mt-2 font-semibold text-gray-800">– Daniel K.</span>
+      </div>
+    </div>
+<div class="bg-white shadow-md rounded-lg p-6 w-80 flex items-start space-x-4">
+      <img src="https://i.pravatar.cc/80?img=3" alt="User profile" class="w-14 h-14 rounded-full">
+      <div>
+        <p class="text-gray-700 italic">"My favorite sticker app. Super easy to use!"</p>
+        <span class="block mt-2 font-semibold text-gray-800">– Amina M.</span>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+
   <footer class="bg-gray-900 shadow text-white text-center py-6 mt-16">
     <p>&copy;2025 Stickerly.All rights reserved</p>
     <p class="text-md mt-1">Designed by Billy Kemboi</p>
 
   </footer>
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if (!loggedIn) {
+      window.location.href = "login.html";
+    }
+
+    document.getElementById("username").textContent = user?.username || "Guest";
+
+    function logout() { 
+localStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    }
+  </script>
+
 </body>
 
 </html>

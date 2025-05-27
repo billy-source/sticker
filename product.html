@@ -5,32 +5,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stickerly Cart</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body class="bg-gray-50 font-sans">
 
+  <!-- Header -->
   <header class="bg-white shadow">
-      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-4xl font-bold text-white-800">Stickerly</h1>
-        <nav>
-           <ul class="flex space-x-4">
-            <li><a href="index.html" class="hover:bg-green-600 rounded-lg px-4 py-2 border-b-2 border-green-500">Home</a></li>
-            <li><a href="shop.html" class="hover:bg-green-600 rounded-lg  px-4 py-2 ">Shop</a></li>
-            <li><a href="about.html" class="hover:bg-green-600 rounded-lg px-4 py-2">About</a></li>
-            <li><a href="product.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Product</a></li>
-            <li><a href="contact.html" class="hover:bg-green-600 rounded-lg px-4 py-2">Contact</a></li>
-           </ul>
-        </nav>
-      </div>
-  <div class="cart-icon relative">
-        <i class="fa fa-shopping-cart text-xl blue "></i>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-4xl font-bold text-gray-800">Stickerly</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="index.html" class="hover:bg-green-600 hover:text-white rounded-lg px-4 py-2 transition">Home</a></li>
+          <li><a href="shop.html" class="hover:bg-green-600 hover:text-white rounded-lg px-4 py-2 transition">Shop</a></li>
+          <li><a href="about.html" class="hover:bg-green-600 hover:text-white rounded-lg px-4 py-2 transition">About</a></li>
+          <li><a href="product.html" class="hover:bg-green-600 hover:text-white rounded-lg px-4 py-2 border-b-2 border-green-500 transition">Product</a></li>
+          <li><a href="contact.html" class="hover:bg-green-600 hover:text-white rounded-lg px-4 py-2 transition">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon relative ml-4">
+        <i class="fa fa-shopping-cart text-xl text-blue-600"></i>
         <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full" id="count">0</span>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <!-- Main Content -->
   <div class="container mx-auto p-4 flex flex-col lg:flex-row gap-6">
-    <!-- Product Grid --><div id="root" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
-      <!-- JS will insert product cards here -->
+    <!-- Product Grid -->
+    <div id="root" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
+      <!-- JavaScript will dynamically insert product cards here -->
     </div>
 
     <!-- Cart Sidebar -->
@@ -39,108 +45,106 @@
         <p class="text-lg font-semibold">My Cart</p>
       </div>
       <div id="cartItem" class="text-sm text-gray-600">Your Cart is Empty</div>
-      <div class="foot mt-6 border-t pt-4 w-32 h-32">
+      <div class="foot mt-6 border-t pt-4">
         <h3 class="text-base font-medium">Total</h3>
         <h2 id="total" class="text-xl font-bold text-green-600">$0.00</h2>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition">Checkout</button>
       </div>
     </div>
   </div>
 
+  <!-- JavaScript -->
+  <script>
+    // Sample product data
+    const products = [
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 9.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "cutepanda.jfif",
+        price: 12.99,
+        image: "https://via.placeholder.com/150"
+      },
+      {
+        id: 3,
+        name: "Sticker Pack 3",
+        price: 7.99,
+        image: "https://via.placeholder.com/150"
+      },
+      {
+        id: 4,
+        name: "Sticker Pack 4",
+        price: 5.99,
+        image: "https://via.placeholder.com/150"
+      }
+    ];
 
-    <script>
-        const product = [
-            { 
-                id:0,
-                image:'niceday.jpg',
-                tittle:'Nice Day',
-                price: 3.99,
-            },{ 
-                id:1,
-                image:'cute panda.jfif',
-                tittle:'Cute Panda',
-                price: 3.99,
-            },{ 
-                id:2,
-                image:'best.frn.panda.jfif',
-                tittle:'Best Friend Panda',
-                price: 3.99,
-            },{ 
-                id:3,
-                image:'enjoy life.jfif',
-                tittle:'Enjoy Life',
-                price: 3.99,
-            },{ 
-                id:4,
-                image:'stick1.jfif',
-                tittle:'Stick 1',
-                price: 3.99,
-            },{ 
-                id:5,
-                image:'stick2.webp',
-                tittle:'Stick 2',
-                price: 3.99,
-            },{ 
-                id:6,
-                image:'stick3.webp',
-                tittle:'Stick 3',
-                price: 3.99,
-            }
-        ]; // <-- Close the array and statement
+    const root = document.getElementById('root');
+    const cartItem = document.getElementById('cartItem');
+    const total = document.getElementById('total');
+    const count = document.getElementById('count');
 
-        const category = [...new Set(product.map((item) => item))];
-        let i = 0;
-        document.getElementById('root').innerHTML = category.map((item) => {
-            var { image, tittle, price } = item;
-            return (
-                `<div class="box">
-                    <div class="img-box">
-                        <img class="images" src="${image}" />
-                    </div>
-                    <div class="bottom">
-                        <p>${tittle}</p>
-                        <h2>$${price.toFixed(2)}</h2>
-                        <button onclick="addToCart(${i++})">Add to Cart</button>
-                    </div>
-                </div>`
-            );
-        }).join('');
-        function addToCart(a) {
-            cart.push({ ...category[a] });
-            displayCart();
-        }
-        function deleteElement(a) {
-            cart.splice(a, 1);
-            displayCart();
-        }
+    let cart = [];
 
-        var cart = [];
-        function displayCart(){
-            let j =0;total=0;
-            
-            document.getElementById('count').innerHTML = cart.length;
-            if (cart.length ==0){
-                document.getElementById('cartItem').innerHTML = "Your Cart is Empty";
-                document.getElementById("total").innerHTML ="$" + total+ ".00";
-            } else {
-                document.getElementById('cartItem').innerHTML = cart.map((items) => {
-                    var { image, tittle, price } = items;
-                    total =total+price;
-                    document.getElementById("total").innerHTML ="$"+total.toFixed(2); 
-                    return (
-                        `<div class="cart-item">
-                            <div class ="row-img">
-                                <img class="row-img" src="${image}" />
-                            </div>
-                            <p style ="font-size:12px;">${tittle}</p>
-                            <h2 style="font-size:14px;">$${price.toFixed(2)}</h2>
-                            <i class="fa-solid fa-trash" onclick="deleteElement(${j++})"></i>
-                        </div>`
-                        
-                        
-                    );
-                }).join('');
-            }
-        }
-    </script>
+// Function to render products
+function renderProducts() {
+  products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.className = "bg-white rounded-lg shadow p-4 flex flex-col items-center text-center";
+    productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
+      <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+      <p class="text-green-600 font-bold mt-2">$${product.price.toFixed(2)}</p>
+      <button class="mt-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition" onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+    root.appendChild(productCard);
+  });
+}
+
+// Function to add product to cart
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (product) {
+    cart.push(product);
+    updateCart();
+  }
+}
+
+// Function to update cart display
+function updateCart() {
+  // Update cart count
+  count.textContent = cart.length;
+
+  // Update cart items
+  if (cart.length === 0) {
+    cartItem.innerHTML = "Your Cart is Empty";
+    total.textContent = "$0.00";
+    return;
+  }
+
+  cartItem.innerHTML = "";
+  let totalPrice = 0;
+  cart.forEach((item, index) => {
+    totalPrice += item.price;
+    const cartProduct = document.createElement('div');
+    cartProduct.className = "flex justify-between items-center mb-2";
+    cartProduct.innerHTML = `
+      <span>${item.name}</span>
+      <span>$${item.price.toFixed(2)}</span>
+    `;
+    cartItem.appendChild(cartProduct);
+  });
+
+  total.textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Initialize
+renderProducts();
+  </script>
+
 </body>
 </html>
