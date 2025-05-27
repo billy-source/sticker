@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stickerly Cart</title>
-  <!-- Tailwind CSS -->
+  
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for Icons -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body class="bg-gray-50 font-sans">
 
-  <!-- Header -->
+  
   <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-4xl font-bold text-gray-800">Stickerly</h1>
@@ -32,14 +32,15 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  
   <div class="container mx-auto p-4 flex flex-col lg:flex-row gap-6">
-    <!-- Product Grid -->
-    <div id="root" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
-      <!-- JavaScript will dynamically insert product cards here -->
+    
+    <div id="root" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1 bg-white p-4 rounded shadow">
+      <!-- Product cards will be rendered here -->
+      
     </div>
 
-    <!-- Cart Sidebar -->
+    
     <div class="sidebar w-full lg:w-64 bg-white p-4 rounded shadow">
       <div class="head mb-4">
         <p class="text-lg font-semibold">My Cart</p>
@@ -48,38 +49,158 @@
       <div class="foot mt-6 border-t pt-4">
         <h3 class="text-base font-medium">Total</h3>
         <h2 id="total" class="text-xl font-bold text-green-600">$0.00</h2>
-        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition">Checkout</button>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition" onclick="location.href='checkout.html'">Checkout</button>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript -->
+  
   <script>
-    // Sample product data
+    
     const products = [
       {
         id: 1,
         name: "enjoy life",
-        price: 9.99,
+        price: 1.99,
         image: "enjoy life.jfif"
       },
       {
         id: 2,
-        name: "cutepanda.jfif",
-        price: 12.99,
-        image: "https://via.placeholder.com/150"
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
       },
       {
         id: 3,
-        name: "Sticker Pack 3",
-        price: 7.99,
-        image: "https://via.placeholder.com/150"
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
       },
       {
         id: 4,
-        name: "Sticker Pack 4",
-        price: 5.99,
-        image: "https://via.placeholder.com/150"
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
+      },
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 1.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
+      },
+      {
+        id: 3,
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
+      },
+      {
+        id: 4,
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
+      },
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 1.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
+      },
+      {
+        id: 3,
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
+      },
+      {
+        id: 4,
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
+      },
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 1.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
+      },
+      {
+        id: 3,
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
+      },
+      {
+        id: 4,
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
+      },
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 1.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
+      },
+      {
+        id: 3,
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
+      },
+      {
+        id: 4,
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
+      },
+      {
+        id: 1,
+        name: "enjoy life",
+        price: 1.99,
+        image: "enjoy life.jfif"
+      },
+      {
+        id: 2,
+        name: "Cute Panda",
+        price: 1.99,
+        image: "cute panda.jfif"
+      },
+      {
+        id: 3,
+        name: "Kawaaii pandaLove",
+        price: 1.99,
+        image: "kawaaii.pandalove.jpg"
+      },
+      {
+        id: 4,
+        name: "Comrade",
+        price: 1.99,
+        image: "sticker2.webp"
       }
     ];
 
@@ -90,7 +211,7 @@
 
     let cart = [];
 
-// Function to render products
+
 function renderProducts() {
   products.forEach(product => {
     const productCard = document.createElement('div');
@@ -105,7 +226,7 @@ function renderProducts() {
   });
 }
 
-// Function to add product to cart
+
 function addToCart(id) {
   const product = products.find(p => p.id === id);
   if (product) {
@@ -114,12 +235,12 @@ function addToCart(id) {
   }
 }
 
-// Function to update cart display
+
 function updateCart() {
   // Update cart count
   count.textContent = cart.length;
 
-  // Update cart items
+
   if (cart.length === 0) {
     cartItem.innerHTML = "Your Cart is Empty";
     total.textContent = "$0.00";

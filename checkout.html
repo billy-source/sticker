@@ -1,0 +1,103 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Stickerly</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    form input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  </style>
+  </head>
+<body>
+  <div class="container">
+    <h2>Checkout</h2>
+
+    <div id="order-summary"></div>
+
+    <p class="total" id="total-price">Total: 0.00</p>
+
+    <h3>Shipping Information</h3>
+    <form id="shipping-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="text" placeholder="Shipping Address" required />
+    </form>
+<div>
+    <p>Payment Method:</p>
+    <select id="payment-method">
+      <option value="credit-card">Credit Card</option>
+      <option value="paypal">M-pesa</option>
+      <option value="bank-transfer">Bank Transfer</option>
+    </select>
+  </div>
+    <button id="place-order">Place Order</button>
+  </div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const summary = document.getElementById("order-summary");
+    const totalElem = document.getElementById("total-price");
+    let total = 0;
+
+summary.innerHTML = cart.map(item => {
+  total += item.price;
+  return `<div class="cart-item"><span>${item.name}</span><span>$${item.price.toFixed(2)}</span></div>`;
+}).join('');
+
+totalElem.textContent = `Total: $${total.toFixed(2)}`;
+
+    document.getElementById("place-order").addEventListener("click", () => {
+      alert("Order placed successfully!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
+    
