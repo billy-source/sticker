@@ -36,11 +36,15 @@
   <div class="container mx-auto p-4 flex flex-col lg:flex-row gap-6">
     
     <div id="root" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1 bg-white p-4 rounded shadow">
+      <div class="col-span-full text-center mb-4">
+        <h2 class="text-2xl font-semibold">Our Products</h2>
+        <p class="text-gray-600">Explore our collection of tech unique stickers</p>
+      </div>
       <!-- Product cards will be rendered here -->
-      
+
     </div>
 
-    
+
     <div class="sidebar w-full lg:w-64 bg-white p-4 rounded shadow">
       <div class="head mb-4">
         <p class="text-lg font-semibold">My Cart</p>
@@ -60,147 +64,147 @@
     const products = [
       {
         id: 1,
-        name: "enjoy life",
+        name: "cat sticker",
         price: 1.99,
-        image: "enjoy life.jfif"
+        image: "CODE.jpeg"
       },
       {
         id: 2,
-        name: "Cute Panda",
+        name: "cat sticker",
         price: 1.99,
-        image: "cute panda.jfif"
+        image: "CAT 1.jpeg"
       },
       {
         id: 3,
-        name: "Kawaaii pandaLove",
+        name: "cat sticker",
         price: 1.99,
-        image: "kawaaii.pandalove.jpg"
+        image: "CAT3.webp"
       },
       {
         id: 4,
-        name: "Comrade",
+        name: "cat sticker",
         price: 1.99,
-        image: "sticker2.webp"
+        image: "CAT4.webp"
+      },
+      {
+        id: 5,
+        name: "MY FANS",
+        price: 1.99,
+        image: "MY FANS.webp"
+      },
+      {
+        id: 2,
+        name: "NOBODY",
+        price: 1.99,
+        image: "NOBODY.jpeg"
+      },
+      {
+        id: 3,
+        name: "Qr code",
+        price: 1.99,
+        image: "QR.jpeg"
+      },
+      {
+        id: 4,
+        name: "QR CODE 2",
+        price: 1.99,
+        image: "QR2.jpg"
       },
       {
         id: 1,
-        name: "enjoy life",
+        name: "html",
         price: 1.99,
-        image: "enjoy life.jfif"
+        image: "html.jpeg"
       },
       {
         id: 2,
-        name: "Cute Panda",
+        name: "html 2",
         price: 1.99,
-        image: "cute panda.jfif"
+        image: "html2.webp"
       },
       {
         id: 3,
-        name: "Kawaaii pandaLove",
+        name: "motivation",
         price: 1.99,
-        image: "kawaaii.pandalove.jpg"
+        image: "DISABILLITIES.webp"
       },
       {
         id: 4,
-        name: "Comrade",
+        name: "Dolly",
         price: 1.99,
-        image: "sticker2.webp"
+        image: "DOLLY.webp"
       },
       {
         id: 1,
-        name: "enjoy life",
+        name: "GitHub",
         price: 1.99,
-        image: "enjoy life.jfif"
+        image: "gitHub.jpeg"
       },
       {
         id: 2,
-        name: "Cute Panda",
+        name: "Github 2",
         price: 1.99,
-        image: "cute panda.jfif"
+        image: "github2.jpg"
       },
       {
         id: 3,
-        name: "Kawaaii pandaLove",
+        name: "Github 3",
         price: 1.99,
-        image: "kawaaii.pandalove.jpg"
+        image: "github3.png"
       },
       {
         id: 4,
-        name: "Comrade",
+        name: "Github 4",
         price: 1.99,
-        image: "sticker2.webp"
+        image: "gitHub4.webp"
       },
       {
         id: 1,
-        name: "enjoy life",
+        name: "Jeep",
         price: 1.99,
-        image: "enjoy life.jfif"
+        image: "jeep.jpeg"
       },
       {
         id: 2,
-        name: "Cute Panda",
+        name: "jeep 2",
         price: 1.99,
-        image: "cute panda.jfif"
+        image: "js.webp"
       },
       {
         id: 3,
-        name: "Kawaaii pandaLove",
+        name: "jeep 3",
         price: 1.99,
-        image: "kawaaii.pandalove.jpg"
+        image: "js2.jpeg"
       },
       {
         id: 4,
-        name: "Comrade",
+        name: "laptop",
         price: 1.99,
-        image: "sticker2.webp"
+        image: "laptop.jpeg"
       },
       {
         id: 1,
-        name: "enjoy life",
+        name: "react",
         price: 1.99,
-        image: "enjoy life.jfif"
+        image: "react.webp"
       },
       {
         id: 2,
-        name: "Cute Panda",
+        name: "react 2",
         price: 1.99,
-        image: "cute panda.jfif"
+        image: "react2.png"
       },
       {
         id: 3,
-        name: "Kawaaii pandaLove",
+        name: "NPM",
         price: 1.99,
-        image: "kawaaii.pandalove.jpg"
+        image: "npm 2.webp"
       },
       {
         id: 4,
-        name: "Comrade",
+        name: "npm 2",
         price: 1.99,
-        image: "sticker2.webp"
-      },
-      {
-        id: 1,
-        name: "enjoy life",
-        price: 1.99,
-        image: "enjoy life.jfif"
-      },
-      {
-        id: 2,
-        name: "Cute Panda",
-        price: 1.99,
-        image: "cute panda.jfif"
-      },
-      {
-        id: 3,
-        name: "Kawaaii pandaLove",
-        price: 1.99,
-        image: "kawaaii.pandalove.jpg"
-      },
-      {
-        id: 4,
-        name: "Comrade",
-        price: 1.99,
-        image: "sticker2.webp"
+        image: "npm.jpeg"
       }
     ];
 
